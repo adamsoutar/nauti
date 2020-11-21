@@ -34,7 +34,7 @@ nauti was developed to filter the leaderboard for a game I developed.
 
 I was originally using `bad-words-plus`, but when the leaderboard grew to around fifteen thousand objects, filtering the `nickname` attribute was taking 11 seconds! Players are likely to abandon the leaderboard viewer if it loads for 11 seconds.
 
-nauti filters that same board over five and a half times faster
+nauti filters that same board almost five times faster
 
 ```
 bad-words-plus: 10.954s
