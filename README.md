@@ -1,8 +1,8 @@
-<center>
+<p align="center">
   <img src='./img/logo.png' />
 
   <h4>The fastest way to rid your strings of naughty words, supercharged by Rust</h4>
-</center>
+</p>
 
 ## The What
 
