@@ -20,12 +20,12 @@ For the sake of keeping the readme nice and clean, let's pretend 'Nasty' and 'Ug
 const nauti = require('nauti')
 
 const dodgyStrings = ['Perfectly fine', 'A nasty phrase', 'Very ugly words']
-nauti.cleanStrings(dodgyStrings)
+const cleanedStrings = nauti.cleanStrings(dodgyStrings)
 
 // ['Perfectly fine', 'A ***** phrase', 'Very **** words']
 
 const dodgyLeaderboard = [{ score: 10, nickname: 'Adam' }, { score: 5, name: 'Nasty name' }]
-nauti.cleanObjects(dodgyLeaderboard, 'nickname')
+const cleanedObjects = nauti.cleanObjects(dodgyLeaderboard, 'nickname')
 
 // [{ score: 10, nickname: 'Adam' }, { score: 5, name: '***** name' }]
 ```
