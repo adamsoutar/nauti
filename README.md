@@ -1,7 +1,9 @@
 <p align="center">
-  <img src='./img/logo.png' />
+  <img src='./img/logo.png' height="170" />
+</p>
 
-  <h4>The fastest way to rid your strings of naughty words, supercharged by Rust</h4>
+<p align="center">
+  <b>The fastest way to rid your strings of naughty words, supercharged by Rust</b>
 </p>
 
 ## The What
