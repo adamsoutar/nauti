@@ -3,7 +3,9 @@ use neon::prelude::*;
 use censor::*;
 
 fn clean_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
-    let censor = Censor::Standard;
+    // A user named "Kassy" in the leaderboard was being filtered
+    // TODO: Configurable from JS side
+    let censor = Censor::Standard + Censor::Sex - "ass";
 
     let arg = cx.argument::<JsString>(0)?;
     let rs_str = arg.value();
@@ -23,7 +25,7 @@ fn clean_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
 }
 
 fn clean_objects(mut cx: FunctionContext) -> JsResult<JsArray> {
-    let censor = Censor::Standard;
+    let censor = Censor::Standard + Censor::Sex - "ass";
 
     let arg = cx.argument::<JsString>(0)?;
     let arg2 = cx.argument::<JsString>(1)?;
