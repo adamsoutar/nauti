@@ -7,8 +7,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/adamsoutar/nauti.git"
+    "url": "git+https://github.com/adamsoutar/nauti.git"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "curse",
     "words",
@@ -16,10 +19,24 @@
     "filter"
   ],
   "dependencies": {
-    "neon-cli": "^0.5.2"
+    "neon-cli": "^0.5.2",
+    "node-pre-gyp": "^0.16.0"
   },
   "scripts": {
-    "install": "neon build",
+    "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
+    "package": "node-pre-gyp package",
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
     "test": "neon build --release && node -e \"require('./')\""
+  },
+  "binary": {
+    "module_name": "index",
+    "host": "https://github.com/adamsoutar/nauti/releases/download/",
+    "remote_path": "{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "module_path": "./native",
+    "pkg_path": "."
+  },
+  "devDependencies": {
+    "node-pre-gyp-github": "^1.4.3"
   }
 }
