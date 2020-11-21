@@ -5,6 +5,16 @@
   "main": "lib/index.js",
   "author": "Adam Soutar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adamsoutar/nauti.git"
+  },
+  "keywords": [
+    "curse",
+    "words",
+    "profanity",
+    "filter"
+  ],
   "dependencies": {
     "neon-cli": "^0.5.2"
   },
