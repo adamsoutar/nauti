@@ -1,7 +1,7 @@
 use neon::prelude::*;
 use censor::*;
 
-fn filter_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
+fn clean_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
     let censor = Censor::Standard;
 
     let arr = cx.argument::<JsArray>(0)?;
@@ -17,7 +17,7 @@ fn filter_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
     Ok(arr)
 }
 
-fn filter_objects(mut cx: FunctionContext) -> JsResult<JsArray> {
+fn clean_objects(mut cx: FunctionContext) -> JsResult<JsArray> {
     let censor = Censor::Standard;
 
     let arr = cx.argument::<JsArray>(0)?;
@@ -37,7 +37,7 @@ fn filter_objects(mut cx: FunctionContext) -> JsResult<JsArray> {
 }
 
 register_module!(mut cx, {
-    cx.export_function("filterStrings", filter_strings)?;
-    cx.export_function("filterObjects", filter_objects)?;
+    cx.export_function("cleanStrings", clean_strings)?;
+    cx.export_function("cleanObjects", clean_objects)?;
     Ok(())
 });
