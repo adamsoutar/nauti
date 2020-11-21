@@ -10,6 +10,8 @@
 
 nauti is a profanity filter/swear censor for NodeJS that's designed to be faster than other modules on offer.
 
+Most npm package profanity filters use JS regexes to clean serially, **nauti uses native Rust code & parallelism** across all cores to achieve awesome performance.
+
 ## The How
 
 For the sake of keeping the readme nice and clean, let's pretend 'Nasty' and 'Ugly' are swear words
@@ -32,11 +34,11 @@ nauti.cleanObjects(dodgyLeaderboard, 'nickname')
 
 nauti was developed to filter the leaderboard for a game I developed.
 
-I was originally using `bad-words-plus`, but when the leaderboard grew to around fifteen thousand objects, filtering the `nickname` attribute was taking 11 seconds! Players are likely to abandon the leaderboard viewer if it loads for 11 seconds.
+Once the leaderboard grew to around fifteen-thousand records, `bad-words-plus` - which I was using - began to take an unreasonable amount of time to filter players' usernames. Players are bound to abandon the leaderboard viewer if it takes almost half a minute to load!
 
-nauti filters that same board almost five times faster
+nauti filters that same board four-hundred-and-seven times faster on a 16 thread CPU
 
 ```
-bad-words-plus: 10.954s
-nauti: 2.345s
+bad-words-plus: 25.295s
+nauti: 62.113ms
 ```
