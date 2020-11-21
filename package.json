@@ -1,0 +1,15 @@
+{
+  "name": "nauti",
+  "version": "0.1.0",
+  "description": "The fastest way to rid your strings of naughty words, supercharged by Rust",
+  "main": "lib/index.js",
+  "author": "Adam Soutar",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.5.2"
+  },
+  "scripts": {
+    "install": "neon build",
+    "test": "neon build --release && node -e \"require('./')\""
+  }
+}

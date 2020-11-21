@@ -1,0 +1,19 @@
+[package]
+name = "nauti"
+version = "0.1.0"
+authors = ["Adam Soutar"]
+license = "MIT"
+build = "build.rs"
+edition = "2018"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "nauti"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+neon-build = "0.5.2"
+
+[dependencies]
+neon = "0.5.2"
+censor = "0.1.1"
