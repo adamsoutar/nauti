@@ -2,6 +2,8 @@ use rayon::prelude::*;
 use neon::prelude::*;
 use censor::*;
 
+static GRAWLIX: &'static str = "@#$%&!";
+
 fn clean_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
     // A user named "Kassy" in the leaderboard was being filtered
     // TODO: Configurable from JS side
@@ -11,7 +13,7 @@ fn clean_strings(mut cx: FunctionContext) -> JsResult<JsArray> {
     let rs_str = arg.value();
 
     let v: Vec<String> = serde_json::from_str(&rs_str[..]).unwrap();
-    let censored: Vec<String> = v.par_iter().map(|naughty| censor.censor(&naughty[..])).collect();
+    let censored: Vec<String> = v.par_iter().map(|naughty| censor.censor_with_grawlix_and_offsets(&naughty[..], GRAWLIX, 1, 1)).collect();
 
     // Alloc a JS array and fill it
     let ret_arr = JsArray::new(&mut cx, censored.len() as u32);
@@ -37,7 +39,7 @@ fn clean_objects(mut cx: FunctionContext) -> JsResult<JsArray> {
         let mut cloned = naughty.clone();
         match &naughty[&key_str[..]] {
             serde_json::Value::String(prop_str) => {
-                cloned[&key_str[..]] = serde_json::Value::String(censor.censor(&prop_str[..]));
+                cloned[&key_str[..]] = serde_json::Value::String(censor.censor_with_grawlix_and_offsets(&prop_str[..], GRAWLIX, 1, 1));
             },
             _ => panic!("Prop is not a string")
         }

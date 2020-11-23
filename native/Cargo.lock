@@ -64,9 +64,8 @@ checksum = "92cc7b4cfeaa608da27ccbd00af8e1485761334821791ccf5ce88e9a2bb949e7"
 
 [[package]]
 name = "censor"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fe8c35af62a9c16a62b1429b09ddda83a07e58ac8b0e28a6b93383ce9478498c"
+version = "0.1.0"
+source = "git+https://github.com/adamsoutar/censor?branch=extra_features#3252f0f305589623db7772b1d05d92417714a4d3"
 dependencies = [
  "once_cell",
 ]
