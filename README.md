@@ -22,12 +22,12 @@ const nauti = require('nauti')
 const dodgyStrings = ['Perfectly fine', 'A nasty phrase', 'Very ugly words']
 const cleanedStrings = nauti.cleanStrings(dodgyStrings)
 
-// ['Perfectly fine', 'A ***** phrase', 'Very **** words']
+// ['Perfectly fine', 'A n#$%y phrase', 'Very u!@y words']
 
 const dodgyLeaderboard = [{ score: 10, nickname: 'Adam' }, { score: 5, name: 'Nasty name' }]
 const cleanedObjects = nauti.cleanObjects(dodgyLeaderboard, 'nickname')
 
-// [{ score: 10, nickname: 'Adam' }, { score: 5, name: '***** name' }]
+// [{ score: 10, nickname: 'Adam' }, { score: 5, name: 'N&!%y name' }]
 ```
 
 ## The Why
