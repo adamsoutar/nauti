@@ -24,10 +24,10 @@ const cleanedStrings = nauti.cleanStrings(dodgyStrings)
 
 // ['Perfectly fine', 'A n#$%y phrase', 'Very u!@y words']
 
-const dodgyLeaderboard = [{ score: 10, nickname: 'Adam' }, { score: 5, name: 'Nasty name' }]
+const dodgyLeaderboard = [{ score: 10, nickname: 'Adam' }, { score: 5, nickname: 'Nasty name' }]
 const cleanedObjects = nauti.cleanObjects(dodgyLeaderboard, 'nickname')
 
-// [{ score: 10, nickname: 'Adam' }, { score: 5, name: 'N&!%y name' }]
+// [{ score: 10, nickname: 'Adam' }, { score: 5, nickname: 'N&!%y name' }]
 ```
 
 ## The Why
